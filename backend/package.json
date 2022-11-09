@@ -1,0 +1,30 @@
+{
+  "name": "hostel_management",
+  "version": "1.0.0",
+  "description": "The Hostel Management Website help students to book the room and can register complains regarding hostel room and  admin/staff can view it.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GautamKJ/Hostel-Management.git"
+  },
+  "author": "Gautam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GautamKJ/Hostel-Management/issues"
+  },
+  "homepage": "https://github.com/GautamKJ/Hostel-Management#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.2",
+    "jsonwebtoken": "^8.5.1",
+    "jwt-token": "^1.0.9",
+    "mongoose": "^6.7.0",
+    "router": "^1.3.7"
+  }
+}
