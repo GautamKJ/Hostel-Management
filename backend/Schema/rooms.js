@@ -17,6 +17,10 @@ const roomSchema= new Schema({
         type:String,
         required:true,
     },
+    room_occupancy:{
+        type:Number,
+        required:true
+    },
     room_ac:{
         type:String,
         required:true,
@@ -25,7 +29,7 @@ const roomSchema= new Schema({
 
        roll_no:{
         type:String, 
-        default:""
+        default:"NaN"
        }
 
        

@@ -8,6 +8,9 @@ const router=express.Router();
 
 const {body,validationResult} =require('express-validator');
 const fetchuser= require('../middleware/fetchuser');
+const stdauth=require("../middleware/studentauth");
+const staffauth=require("../middleware/staffauth");
+
 
 
 router.post('/addcomplain', fetchuser, async (req,res)=>{
@@ -18,8 +21,8 @@ router.post('/addcomplain', fetchuser, async (req,res)=>{
         
     comp = new Complain({
         dept:req.body.dept,
+        comp_id:req.body.comp_id,
         complain_desc:req.body.complain_desc,
-        complain_status:req.body.complain_status,
         room_no:req.body.room_no,
         hostel_no:req.body.hostel_no,
         roll_no:req.body.roll_no
@@ -36,7 +39,7 @@ router.post('/addcomplain', fetchuser, async (req,res)=>{
     }
 })
 
-router.post('/fetchcomplain', fetchuser, async (req,res)=>{
+router.post('/fetchcomplain',fetchuser, async (req,res)=>{
    
     try {
         let cmp= await Complain.find({roll_no:req.body.roll_no}).sort({Date:1});
@@ -48,7 +51,7 @@ router.post('/fetchcomplain', fetchuser, async (req,res)=>{
 })
 
 
-router.post('/fetchhostelcomplain', fetchuser, async (req,res)=>{
+router.post('/fetchhostelcomplain', fetchuser,async (req,res)=>{
    
     try {
         let cmp= await Complain.find({hostel_no:req.body.hostel_no}).sort({Date:1});
@@ -59,11 +62,23 @@ router.post('/fetchhostelcomplain', fetchuser, async (req,res)=>{
     }
 })
 
+router.post('/fetchcomplainid', fetchuser, async (req,res)=>{
+   
+    try {
+        let cmp= await Complain.find({_id:req.body._id});
+        res.json(cmp);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json("Some error found");
+    }
+})
+
 
 router.put('/updatecomplain/:id',fetchuser,async (req,res)=>{
-    const {status}=req.body;
+    try{
+    const {complain_status}=req.body;
     const newcomplain={};
-    if(status){newcomplain.status=status};
+    if(complain_status){newcomplain.complain_status=complain_status};
     
     let comp= await Complain.findById(req.params.id);
     if(!comp){
@@ -74,7 +89,10 @@ router.put('/updatecomplain/:id',fetchuser,async (req,res)=>{
     com= await Complain.findByIdAndUpdate(req.params.id,{$set:newcomplain},{new:true}) 
     
     res.json(com);
-
+    }
+    catch(error){
+        console.log(error);
+    }
 
 })
 

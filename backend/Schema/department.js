@@ -1,52 +1,37 @@
 const mongoose= require('mongoose');
 const {Schema}=mongoose;
-const complainSchema= new Schema({
+const departmentSchema= new Schema({
 
-    comp_id:{
-        type:String,
-        unique:true,
-        required:true
-    },
-    dept:{
+  
+    email:{
+
         type:String,
         required:true,
-
+        unique:true
     },
-    complain_desc:{
+    password:{
         type:String,
         required:true
 
     },
-    complain_status:{
-        type:String,
-        default:"Pending"
-
-    },
-    room_no:{
+    department:{
         type:String,
         required:true
-    },
-    hostel_no:{
-        type:String,
-        required:true
-    },
-    roll_no:{
-        type:String,
-        required:true
-
-    },
-
-    date:{
-        type:Date,
-        default:new Date()
         
+    },
+    hostel:{
+        type:String,
+        default:"NaN"
     }
 
+    
+
+    
 })
 
 // Now, we need to export and create our Model. So call the module. exports and we want to export the mongoose model and we need to specify arguments to this model() method. The first argument is gonna be the name of the model. So let’s name our model as “Employee“, and the second argument is our Schema that is employeeSchema.
 
-const comp=mongoose.model('complains',complainSchema);;
-comp.createIndexes();
-module.exports=comp;
+const Dept=mongoose.model('dept',departmentSchema);
+Dept.createIndexes();
+module.exports=Dept;
 

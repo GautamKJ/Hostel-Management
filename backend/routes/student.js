@@ -9,12 +9,14 @@ const {body,validationResult} =require('express-validator');
 const fetchuser= require('../middleware/fetchuser');
 const { findOne, find, findOneAndDelete } = require("../Schema/student");
 
-
+const stdauth=require("../middleware/studentauth");
+const staffauth=require("../middleware/staffauth");
+const adminauth=require("../middleware/adminauth");
 
 // Add Student
 
 
-router.post('/addstudent', fetchuser, async (req,res)=>{
+router.post('/addstudent', fetchuser, adminauth, async (req,res)=>{
    
     
     try{
@@ -28,7 +30,7 @@ router.post('/addstudent', fetchuser, async (req,res)=>{
      
 
     loginstd = new Login({
-        email:req.body.roll_no+"@lnmiit.ac.in",
+        email:req.body.roll_no,
         password:secPass
     });
 
@@ -47,7 +49,7 @@ router.post('/addstudent', fetchuser, async (req,res)=>{
         res.json(savestudent);
 
        
-        // res.json(stdlogin);
+        
     
     }
     catch(errors){
@@ -61,7 +63,7 @@ router.post('/addstudent', fetchuser, async (req,res)=>{
 
 // DELETE STUDENT
 
-router.post('/deletestudent',  fetchuser,async (req,res)=>{
+router.post('/deletestudent',  fetchuser,adminauth,async (req,res)=>{
    
     
     try{
@@ -72,10 +74,26 @@ router.post('/deletestudent',  fetchuser,async (req,res)=>{
     }
     
     
-     email=req.body.roll_no+"@lnmiit.ac.in";
-     
-    student= await Student.findOneAndDelete({roll_no:req.body.roll_no}) ;
+     email=req.body.roll_no;
+     let user2= await Student.findOne({roll_no:req.body.roll_no});
 
+        
+     // Old Alloted Room database updated
+     console.log("user2 ",user2);
+    let resp;
+     if(user2.length>0 && user2.room_no!=""){
+     let newuseroldroom=await Room.find({room_no:user2.room_no,hostel:user2.hostel_no});
+
+     for (var i = 0; i < newuseroldroom[0].occupant.length; i++) {
+         if(newuseroldroom[0].occupant[i].roll_no==newrollno){
+             newuseroldroom[0].occupant.splice(i, 1);
+         break;
+         }
+     }
+    }
+    student= await Student.findOneAndDelete({roll_no:req.body.roll_no}) ;
+   
+    
     console.log(req.body.roll_no,"  ",student);
     login= await Login.findOneAndDelete(email);
     res.json("Success : Student has been deleted" );
@@ -99,6 +117,36 @@ router.post('/fetchstudent', fetchuser, async (req,res)=>{
             res.status(500).json("Some error found");
         }
 })
+
+// Fetch Student profile Details by roll no
+
+router.post('/fetchstudentroll',  async (req,res)=>{
+   
+    try {
+        let student= await Student.find({roll_no:req.body.roll_no});
+        res.json(student);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json("Some error found");
+    }
+})
+
+
+// Fetch Student profile Details by roll no and hostel no
+
+router.post('/fetchstudentstaff', fetchuser, async (req,res)=>{
+   
+    try {
+        let student= await Student.find({roll_no:req.body.roll_no,hostel_no:req.body.hostel_no});
+        res.json(student);
+    } catch (error) {
+        console.error(error.message);
+        res.status(500).json("Some error found");
+    }
+})
+
+
+
 
 
 module.exports = router;

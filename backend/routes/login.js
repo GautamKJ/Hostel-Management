@@ -3,6 +3,7 @@ const bcrypt=require('bcryptjs');
 const Student=require('../Schema/student');
 const Room=require("../Schema/rooms");
 const User=require("../Schema/login");
+const Department=require("../Schema/department");
 const jwt=require('jsonwebtoken');
 const router=express.Router();
 
@@ -11,8 +12,7 @@ const fetchuser= require('../middleware/fetchuser');
 const JWT_SECRET=process.env.JWT_SECRET;
 router.post('/login',[
  
-    body('email',"Enter the valid Email").isEmail(),
-  body('password',"Password can't be blank").exists(),
+  
     ],  async (req,res)=>{
    
     const errors = validationResult(req);
@@ -22,7 +22,7 @@ router.post('/login',[
     const {email,password}=req.body;
     try{
       // retrive user from data base using email
-    let user=await User.findOne({email});
+    let user=await User.findOne({email:email});
     if(!user){
         return res.status(400).json("Please use right credential to login.");
     }
@@ -39,6 +39,7 @@ router.post('/login',[
       }
       var token = jwt.sign(data, JWT_SECRET);
       
+      
     res.json({token});
     }
     catch(errors){
@@ -50,7 +51,7 @@ router.post('/login',[
   
   })
 
-  router.put('/changePassword',fetchuser,async (req,res)=>{
+  router.put('/changePassword',async (req,res)=>{
     const {email,oldPass,newPass}=req.body;
     let user=await User.findOne({email});
     if(!user){
@@ -62,7 +63,7 @@ router.post('/login',[
     return res.status(400).json("Please use right credentials to login.");
     
     const salt= await bcrypt.genSalt(10);
-    const secPass=await bcrypt.hash(oldPass,salt);
+    const secPass=await bcrypt.hash(newPass,salt);
     
    const newCredential={};
    newCredential.password=secPass;
@@ -73,5 +74,60 @@ router.post('/login',[
 
 
 })
+
+
+// Get logged in user detail
+
+router.post('/loggeduser',  async (req,res)=>{
+   
+  try {
+      let user= await Department.find({email:req.body.email});
+      res.json(user);
+  } catch (error) {
+      console.error(error.message);
+      res.status(500).json("Some error found");
+  }
+})
+
+router.post('/adddepartment', async (req,res)=>{
+   
+    
+  try{
+       // check whether this Student id already exist or not
+  
+  const salt= await bcrypt.genSalt(10);
+  const secPass=await bcrypt.hash(req.body.password,salt);
+   
+
+
+  user = new Department({
+          
+          email: req.body.email,
+          password:secPass,
+          department: req.body.department,
+          hostel: req.body.hostel,
+        
+          
+    });
+    loginstd = new User({
+      email:req.body.email,
+      password:secPass
+  });
+        await loginstd.save();
+      const savestudent= await user.save();
+      res.json(savestudent);
+
+  
+  }
+  catch(errors){
+      console.error(errors.message);
+      res.status(500).json("Some error found");
+  }
+
+
+
+})
+
+
 
 module.exports=router;
