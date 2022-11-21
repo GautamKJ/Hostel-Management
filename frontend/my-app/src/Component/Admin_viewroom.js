@@ -14,6 +14,9 @@ function Admin_viewroom() {
     if(!localStorage.getItem('token'))
       navigate('/');
   })
+  useEffect(()=>{
+    document.title='View Room';
+  },[])
   const [hostel,setHostel]=useState("");
   const [apiResponse, setApiResponse] = useState("*** now loading ***");  
   const [details,setDetail]=useState([]);

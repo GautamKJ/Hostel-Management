@@ -16,7 +16,9 @@ function Staff_viewstudent() {
     if(!localStorage.getItem('token'))
       navigate('/');
   })
-  
+  useEffect(()=>{
+    document.title='View Student';
+  },[])
   const [details,setDetail]=useState({name:"",roll_no:"",contact:"",parent_contact:"",gender:"",password:"",year:""});
   const onchange=(e)=>{
     setRoll(e.target.value);
@@ -149,6 +151,11 @@ function Staff_viewstudent() {
                           <div className="form-group">
                             <label>Parent's Contact</label>
                             <input className="form-control" type="text" placeholder="9680250320"value={details.parent_contact} readonly/>
+                          </div>
+
+                          <div className="form-group">
+                            <label>Room No.</label>
+                            <input className="form-control" type="text" placeholder="2020" value={details.room_no} readonly/>
                           </div>
                           
                           <div className="form-group">

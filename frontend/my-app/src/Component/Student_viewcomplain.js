@@ -11,6 +11,9 @@ function Student_viewcomplain(props) {
   
     navigate("/login");
   }
+  useEffect(()=>{
+    document.title='View Complain';
+  },[])
     const [details,setDetail]=useState([]);
   
     

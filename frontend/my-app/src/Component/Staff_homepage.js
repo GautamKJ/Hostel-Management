@@ -13,6 +13,9 @@ function Staff_homepage() {
     if(!localStorage.getItem('token'))
       navigate('/');
   })
+  useEffect(()=>{
+    document.title='Staff';
+  },[])
   return (
     <div>
        <div class="wrapper d-flex">

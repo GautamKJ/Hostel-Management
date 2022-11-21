@@ -86,35 +86,47 @@ router.put('/updateroom',fetchuser, async (req,res)=>{
         const room_detail2={};
         const std_detail1={};
         const std_detail2={};
-        // New Alloted Room database updated
+        let user1=await Student.findOne({roll_no:req.body.oldrollno});
+        let user2= await Student.findOne({roll_no:req.body.newrollno});
+
+        if(!user2 )
+        return res.status(400).json("Student does not exist");
+
+        let roombook=false;
         let room= await Room.find({_id:req.body._id});
         if(room){
         for (var i = 0; i < room[0].occupant.length; i++) {
             if(room[0].occupant[i].roll_no==oldrollno){
             room[0].occupant[i].roll_no=newrollno;
+            roombook=true;
             break;
             }
         }
+        if(!roombook)
+        { room[0].occupant.push({
+            roll_no:req.body.newrollno
+        })}
         room_detail1.occupant=room[0].occupant;
-        await Room.findByIdAndUpdate({_id:room[0]._id},{$set:room_detail1},{new:true}) 
+      
     }
 
     console.log("asjd ",oldrollno," ",newrollno);
 
         // Student database
         // old roll no
-        let user1=await Student.findOne({roll_no:req.body.oldrollno});
-        let user2= await Student.findOne({roll_no:req.body.newrollno});
-
+    
         
         // Old Alloted Room database updated
         console.log("user2 ",user2);
        let resp;
-        if(user2.length>0 && user2.room_no!=""){
+        if(user2.room_no!=""){
         let newuseroldroom=await Room.find({room_no:user2.room_no,hostel:user2.hostel_no});
-   
+            console.log("newuseroldroom[0].occupant.length ",newuseroldroom[0].occupant.length);
         for (var i = 0; i < newuseroldroom[0].occupant.length; i++) {
+            console.log("newuseroldroom[0].occupant[i].roll_no ",newuseroldroom[0].occupant[i].roll_no);
             if(newuseroldroom[0].occupant[i].roll_no==newrollno){
+                    
+                console.log("newuseroldroom[0].occupant[i].roll_no--> ",newuseroldroom[0].occupant[i].roll_no);
                 newuseroldroom[0].occupant.splice(i, 1);
             break;
             }
@@ -124,14 +136,17 @@ router.put('/updateroom',fetchuser, async (req,res)=>{
         resp=   await Room.findByIdAndUpdate({_id:newuseroldroom[0]._id},{$set:room_detail2},{new:true}) 
     
 }
-        
+
+       
         std_detail1.room_no="";
         std_detail2.room_no=room[0].room_no;
-        await Student.findByIdAndUpdate({_id:user1._id},{$set:std_detail1},{new :true});
-    std=    await Student.findByIdAndUpdate({_id:user2._id},{$set:std_detail2},{new :true});
     
+        await Room.findByIdAndUpdate({_id:room[0]._id},{$set:room_detail1},{new:true}) 
+        if(user1)
+        await Student.findByIdAndUpdate({_id:user1._id},{$set:std_detail1},{new :true});
+        std=await Student.findByIdAndUpdate({_id:user2._id},{$set:std_detail2},{new :true});
   
-        res.json(resp);
+        res.json(std);
 
 
     

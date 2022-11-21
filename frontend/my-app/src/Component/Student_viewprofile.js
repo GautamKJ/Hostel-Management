@@ -11,6 +11,9 @@ function Student_viewprofile() {
   
     navigate("/login");
   }
+  useEffect(()=>{
+    document.title='View Profile';
+  },[])
     const [stdRollno,setstdRollno]=useState("");
 
     
@@ -74,7 +77,7 @@ function Student_viewprofile() {
     </div>
     <div class="back-gr">
 
-        <button type="button" class="btn btn-secondary" data-bs-toggle="button">Log out</button>
+        <button type="button" class="btn btn-secondary" data-bs-toggle="button" onClick={logout} >Log out</button>
         <h1 class="head1">Student Details</h1>
 
         <div class="container bootstrap snippets bootdey">
@@ -117,11 +120,11 @@ function Student_viewprofile() {
                                             </div>
                                             <div class="form-group">
                                                 <label>Room No</label>
-                                                <input class="form-control" type="text" value={details.room_no} placeholder="2020" readonly/>
+                                                <input class="form-control" type="text" value={details.room_no}  readonly/>
                                             </div>
                                             <div class="form-group">
                                                 <label>Hostel No</label>
-                                                <input class="form-control" type="text" value={details.hostel_no} placeholder="2020" readonly/>
+                                                <input class="form-control" type="text" value={details.hostel_no} readonly/>
                                             </div>
                                         </form>
                                     </div>

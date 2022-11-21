@@ -20,6 +20,7 @@ function Admin_addStudent() {
   })
   useEffect(()=>{
     setLoading(false);
+    document.title="Add Student";
   },[])
   const onchange=(e)=>{
     

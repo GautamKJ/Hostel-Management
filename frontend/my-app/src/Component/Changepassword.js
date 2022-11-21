@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 
 function Changepassword() {
     const [details,setDetail]=useState({email:"",oldPass:"",newPass:""});
@@ -32,6 +32,9 @@ function Changepassword() {
         }
         setDetail({email:"",oldPass:"",newPass:""})
       }
+      useEffect(()=>{
+        document.title='Change Password';
+      },[])
   return (
     <div>
        <div class="login-box">

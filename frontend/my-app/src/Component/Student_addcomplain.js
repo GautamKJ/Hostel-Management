@@ -14,6 +14,9 @@ function Student_addcomplain() {
         if(!localStorage.getItem('token'))
           navigate('/');
       })
+      useEffect(()=>{
+        document.title='Add Complain';
+      },[])
     const onchange=(e)=>{
         console.log("changing ",e.target.value);
         

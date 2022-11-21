@@ -11,6 +11,9 @@ function Admin_homepage() {
     
   }
   useEffect(()=>{
+    document.title='Admin';
+  },[])
+  useEffect(()=>{
     if(!localStorage.getItem('token'))
       navigate('/');
   })

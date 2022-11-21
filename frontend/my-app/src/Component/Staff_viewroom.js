@@ -15,6 +15,9 @@ function Staff_viewroom(props) {
     if(!localStorage.getItem('token'))
       navigate('/');
   })  
+  useEffect(()=>{
+    document.title='View Room';
+  },[])
   const [newroll,setNewroll]=useState("");
   const [details,setDetail]=useState([]);
   const [room_no,setRoomNo]=useState("");
@@ -68,7 +71,11 @@ const onsubmit=async(e)=>{
     });
     let json= await response.json();
     if(json)
+    {
+      setNewroll("");
+      window.alert("Update Successfully");
     fetchdata();
+    }
   }
   catch (error) {
  
@@ -151,9 +158,9 @@ const onsubmit=async(e)=>{
                 
                 <th class="th-sm">AC/NON-AC
                 </th>
-                <th class="th-sm">Roll Number
+                <th class="th-sm">Occupant 1
                 </th>
-                <th class="th-sm">Roll Number
+                <th class="th-sm">Occupant 2
                 </th>
                 
               

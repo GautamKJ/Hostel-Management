@@ -4,7 +4,7 @@ const Student=require('../Schema/student');
 const Login= require("../Schema/login")
 const jwt=require('jsonwebtoken');
 const router=express.Router();
-
+const Room=require("../Schema/rooms");
 const {body,validationResult} =require('express-validator');
 const fetchuser= require('../middleware/fetchuser');
 const { findOne, find, findOneAndDelete } = require("../Schema/student");
@@ -16,7 +16,7 @@ const adminauth=require("../middleware/adminauth");
 // Add Student
 
 
-router.post('/addstudent', fetchuser, adminauth, async (req,res)=>{
+router.post('/addstudent',fetchuser, async (req,res)=>{
    
     
     try{
@@ -63,8 +63,8 @@ router.post('/addstudent', fetchuser, adminauth, async (req,res)=>{
 
 // DELETE STUDENT
 
-router.post('/deletestudent',  fetchuser,adminauth,async (req,res)=>{
-   
+router.post('/deletestudent',  fetchuser,async (req,res)=>{
+    const room_detail2={};
     
     try{
          // check whether this Student id already exist or not
@@ -80,16 +80,20 @@ router.post('/deletestudent',  fetchuser,adminauth,async (req,res)=>{
         
      // Old Alloted Room database updated
      console.log("user2 ",user2);
-    let resp;
-     if(user2.length>0 && user2.room_no!=""){
+    
+     if(user2 && user2.room_no!=""){
+        console.log("adsfasd");
      let newuseroldroom=await Room.find({room_no:user2.room_no,hostel:user2.hostel_no});
-
+     console.log("---- ",newuseroldroom);
      for (var i = 0; i < newuseroldroom[0].occupant.length; i++) {
-         if(newuseroldroom[0].occupant[i].roll_no==newrollno){
+         if(newuseroldroom[0].occupant[i].roll_no==req.body.roll_no){
              newuseroldroom[0].occupant.splice(i, 1);
          break;
          }
      }
+     room_detail2.occupant=newuseroldroom[0].occupant;
+        await Room.findByIdAndUpdate({_id:newuseroldroom[0]._id},{$set:room_detail2},{new:true}) 
+        console.log("====== ",newuseroldroom);
     }
     student= await Student.findOneAndDelete({roll_no:req.body.roll_no}) ;
    

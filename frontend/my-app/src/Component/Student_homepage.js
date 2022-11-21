@@ -12,6 +12,9 @@ function Student_homepage() {
     navigate("/login");
   }
   useEffect(()=>{
+    document.title='Student';
+  },[])
+  useEffect(()=>{
     if(!localStorage.getItem('token'))
       navigate('/');
   })

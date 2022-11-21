@@ -15,6 +15,9 @@ function Admin_deletestudent() {
     if(!localStorage.getItem('token'))
       navigate('/');
   })
+  useEffect(()=>{
+    document.title='Delete Student';
+  },[])
   const onchange=(e)=>{
     setRoll(e.target.value);
 

@@ -1,5 +1,5 @@
 
-import React, {useState,useContext } from 'react'
+import React, {useState,useContext ,useEffect} from 'react'
 
 import {useNavigate} from "react-router-dom";
 import AppContext from '../context/appContext';
@@ -104,6 +104,9 @@ function Login(props) {
     }
     setcredentials({email:"",password:""});
   }
+  useEffect(()=>{
+    document.title='Login';
+  },[])
   return (
     <div>
       <div className="login-box">

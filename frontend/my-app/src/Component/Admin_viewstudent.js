@@ -20,6 +20,9 @@ function Admin_viewstudent() {
     setRoll(e.target.value);
 
   }
+  useEffect(()=>{
+    document.title='View Student';
+  },[])
   const onsubmit=async(e)=>{
 
     console.log(roll);
@@ -100,7 +103,8 @@ function Admin_viewstudent() {
                     </div>
 
 
-                    <div class="submit">    <button type="submit" disabled={roll==""}>Search</button>
+                    <div class="submit">     <button type="submit"  class="btn btn-primary" data-bs-toggle="modal"
+                  data-bs-target="#myModal" disabled={roll==""}>Search</button>
                     </div>
                   </div>
                 </div>

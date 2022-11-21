@@ -13,6 +13,9 @@ function Student_bookroom() {
     navigate("/login");
   }
   useEffect(()=>{
+    document.title='Book Room';
+  },[])
+  useEffect(()=>{
     if(!localStorage.getItem('token'))
       navigate('/');
   })
@@ -103,6 +106,7 @@ const getStudentdata=async()=>{
       let json= await response.json();
       if(json){
         setBookdone(true);
+        window.alert("Room Booked Successfully");
       }
      
     

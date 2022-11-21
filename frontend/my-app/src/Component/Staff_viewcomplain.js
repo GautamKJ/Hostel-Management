@@ -13,6 +13,9 @@ function Staff_viewcomplain(props) {
     if(!localStorage.getItem('token'))
       navigate('/');
   })
+  useEffect(()=>{
+    document.title='View Complain';
+  },[])
   const [currstatus,setCurrstatus]=useState("");
   const [id,setId]=useState("");
 
