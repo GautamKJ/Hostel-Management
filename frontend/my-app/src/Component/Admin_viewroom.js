@@ -60,7 +60,7 @@ function Admin_viewroom() {
  
   
   return (
-    <div>
+    <>
        <div class="wrapper d-flex">
     <div class="sidebar">
       <small class="text-muted pl-3">Hostel Management </small>
@@ -83,9 +83,9 @@ function Admin_viewroom() {
     <button type="button" class="btn btn-secondary" data-bs-toggle="button" onClick={logout}>Log out</button>
     <h1 class="head1">View Room List</h1>
 
-
+    
     <div class="first_container">
-      <h5>Select hostel to view rooms</h5>
+    <h5>Select hostel to view rooms</h5>    
       <select class="form-select" value={hostel} onChange={onchange} aria-label="Default select example">
         <option selected >Select Hostel</option>
         <option value="BH1">BH1</option>
@@ -150,7 +150,7 @@ function Admin_viewroom() {
   </div>
 
     </div>
-    </div>
+    </>
   )
 }
 

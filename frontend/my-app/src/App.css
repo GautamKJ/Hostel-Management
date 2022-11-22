@@ -170,7 +170,7 @@ html {
 .back-gr {
 	
 
-	height: 100vh;
+	height: 120vh;
 	
 	background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
 }
@@ -268,8 +268,9 @@ i.far.fa-credit-card:hover {
 .head1 {
 	position: absolute;
 	font-size: 40px;
+	top: 40px;
 	margin-left: 26.33%;
-	margin-top: 2.68%;
+	/* margin-top: 2.68%; */
 	font-weight: bold;
 }
 
@@ -310,9 +311,10 @@ i.far.fa-credit-card:hover {
 .first_container {
 	position: absolute;
 	width: 32.91%;
+	top: 100px;
 	margin-bottom: 8.05%;
 	margin-left: 26.33%;
-	margin-top: 10.78%;
+	/* margin-top: 10.78%; */
 }
 
 .table_content {
@@ -356,6 +358,7 @@ h6 {
 	box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .14), 0 2px 2px 0 rgba(0, 0, 0, .098), 0 1px 5px 0 rgba(0, 0, 0, .084);
 
 	border: 0;
+
 	border-radius: 4px;
 	margin-bottom: 2.14%;
 	
@@ -372,8 +375,9 @@ h6 {
 }
 
 .thumb96 {
-	width: 6.3% !important;
-	height: 12.88% !important;
+
+	width: 40%!important;
+	height: 13% !important;
 }
 
 .student_info_admin {
@@ -402,9 +406,9 @@ h6 {
 }
 
 .table_staff {
-	position: absolute;
+	position: relative;
 	width: 71.09%;
-	/* height: 53.69%; */
+	height: 53.69%;
 	margin-top: 26.84%;
 	margin-left: 23.04%;
 }
@@ -414,7 +418,7 @@ h6 {
 	position: absolute;
 	width: 69.12%;
 	height: 70%;
-	margin-top: 12%;
+	margin-top: 17%;
 	margin-left: 27.64%;
 }
 
@@ -525,21 +529,4 @@ h6 {
 	position: absolute;
 	margin-top:30%;
 	margin-left:30%;
-}
-.tbody{
-	max-height: 30px;
-	overflow-y: auto;
-}
-
-.table tbody {
-	max-height: 400px;
-	overflow-y: auto;
-	/* width: 100%; */
-	}
-	
-.table thead{
-	position:sticky;
-	top: 0 ;
-	background-color: black;
-	color: white;
 }

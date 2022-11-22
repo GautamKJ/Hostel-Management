@@ -1,8 +1,9 @@
 const express=require('express');
 const database = require('./db');
+require("dotenv").config();
 const jwt = require('jsonwebtoken');
 var cors = require('cors');
-const port=8081;
+const port= process.env.PORT || 8081;
 var app= express();
 database();
 app.use(express.json());

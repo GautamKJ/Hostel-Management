@@ -155,12 +155,12 @@ function Staff_viewstudent() {
 
                           <div className="form-group">
                             <label>Room No.</label>
-                            <input className="form-control" type="text" placeholder="2020" value={details.room_no} readonly/>
+                            <input className="form-control" type="text"  value={details.room_no} readonly/>
                           </div>
                           
                           <div className="form-group">
                             <label>Admission year</label>
-                            <input className="form-control" type="text" placeholder="2020" value={details.year} readonly/>
+                            <input className="form-control" type="text"  value={details.year} readonly/>
                           </div>
                         </form>
                       </div>

@@ -13,13 +13,7 @@ const loginSchema= new Schema({
         type:String,
         required:true
 
-    },
-    department:{
-        type:String,
-        default:"Student"
-        
     }
-    
 
     
 })

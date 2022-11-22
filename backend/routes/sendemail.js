@@ -30,7 +30,7 @@ router.post('/sendmail',fetchuser,(req,res)=>{
         html: `
         <div >
      
-            <li >Message: ${req.body.description}</li>
+            <li >${req.body.description}</li>
        
         `
     };
