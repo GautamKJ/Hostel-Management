@@ -1,0 +1,532 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+	/* CSS */
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
+	font-family: arial;
+}
+
+body {
+	background-color: white;
+	
+
+
+}
+
+
+html {
+    height: 100%;
+  }body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(#141e30, #243b55);
+    background-image: url("../public/images/LoginProper.jpeg");
+    background-size: 100% 100%;
+   
+}
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,.7);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+
+  }
+  #right{
+    float:right ;
+    border-radius: 50%;
+    width: 10%;
+    height: 10%;
+  }
+  .login-box:hover {
+    background: rgba(0,0,0,.87);
+  }
+  .login-box h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color:#fff;
+    text-align: center;
+  }
+
+  .login-box .user-box {
+    position: relative;
+  }
+  
+  .login-box .user-box input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  .login-box .user-box label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+  }
+  .login-box form a {
+    margin-left: 30px;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 40px;
+    letter-spacing: 4px
+  }
+  .login-box a:hover {
+    background: #bf11118d;
+    color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #bf11118d,
+                0 0 25px #bf11118d,
+                0 0 50px #bf11118d,
+                0 0 100px #bf11118d;
+  }
+  .login-box .user-box input:focus ~ label,
+  .login-box .user-box input:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #19e40edb;
+    font-size: 12px;
+  }
+  
+.gbtn{
+	width: 80%;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    
+    letter-spacing: 4px
+}
+
+.back-gr {
+	
+
+	height: 120vh;
+	
+	background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+}
+
+
+.wrapper {
+	position: relative;
+}
+
+.sidebar {
+	position: fixed;
+	width: 18%;
+	height: 100%;
+	background: #070831;
+	padding: 2.6% 0;
+}
+
+.text-muted {
+	color: #adb5bd !important;
+	height: 24.16%;
+	margin-left: 25%;
+	margin-right: 5.2%;
+	margin-top: 10.7%;
+	margin-bottom: 10.7%;
+	font-size: large;
+}
+
+.text-muted-1 {
+	color: #adb5bd !important;
+	height: 24.16%;
+	margin-left: 40%;
+	font-size: large;
+}
+
+ul {
+	padding-bottom: 2.68%;
+}
+
+ul li a img {
+	background: #66BB6A;
+	top: 0;
+	border: none;
+	width: 1.31%;
+}
+
+.sidebar ul li {
+	padding: 15%.98% 15% .98%;
+    height: 50%;
+    margin-top: 10%;
+    text-align: center;
+
+}
+
+.sidebar ul li a {
+	color: #fff;
+	display: block;
+	text-decoration: none;
+}
+
+.sidebar ul li a .fas {
+	width: 1.97%;
+	color: #bdb8d7 !important;
+}
+
+i.fas.fa-home:hover,
+i.fas.fa-file-invoice:hover,
+i.fas.fa-video:hover,
+i.fas.fa-id-badge:hover,
+i.fas.fa-external-link-alt:hover,
+i.fas.fa-code:hover,
+i.far.fa-calendar-alt:hover,
+i.far.fa-credit-card:hover {
+	color: #304FFE !important;
+}
+
+.sidebar ul li a .far {
+	width: 1.97%;
+	color: #bdb8d7 !important;
+}
+
+.sidebar ul li:hover {
+	background: rgb(48, 4, 125);
+}
+
+.sidebar ul li a:hover {
+	text-decoration: none;
+}
+
+.btn-secondary {
+	position: absolute;
+	margin-left: 92.16%;
+	margin-top: 1.34%;
+}
+
+.head1 {
+	position: absolute;
+	font-size: 40px;
+	top: 40px;
+	margin-left: 26.33%;
+	/* margin-top: 2.68%; */
+	font-weight: bold;
+}
+
+.head3 {
+	position: absolute;
+	font-size: 25px;
+	margin-left: 25%;
+	margin-top: 10%;
+	font-weight: bold;
+}
+
+.container {
+	position: absolute;
+	width: 65.83%;
+	margin-bottom: 1.3%;
+	margin-left: 30.28%;
+	margin-top: 8%;
+}
+
+.head6 {
+	font-size: medium;
+	position: absolute;
+	margin-left: 45%;
+	color: #66BB6A;
+}
+
+.form-group {
+	margin: 2%;
+}
+
+.dropdown {
+	margin: .26% .13% .26% .13%;
+}
+
+.submit {
+	margin: .26% .13% .26% .13%;
+}
+.first_container {
+	position: absolute;
+	width: 32.91%;
+	top: 100px;
+	margin-bottom: 8.05%;
+	margin-left: 26.33%;
+	/* margin-top: 10.78%; */
+}
+
+.table_content {
+	position: absolute;
+	width: 65.83%;
+	margin-bottom: 1.34%;
+	margin-left: 30.9%;
+	margin-top: 26.8%;
+
+}
+
+
+.modalheader1 {
+	background-color: #070831;
+	color: white;
+}
+
+h6 {
+	color: rgb(26, 111, 185);
+}
+
+.modal-body {
+	background-color: rgb(246, 223, 246);
+}
+
+.temp {
+	color: brown;
+}
+
+.cross {
+	background-color: aliceblue;
+}
+
+
+.panel.panel-default {
+	border-top-width: 3px;
+}
+
+.box {
+	
+	box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .14), 0 2px 2px 0 rgba(0, 0, 0, .098), 0 1px 5px 0 rgba(0, 0, 0, .084);
+
+	border: 0;
+
+	border-radius: 4px;
+	margin-bottom: 2.14%;
+	
+}
+
+.box1 {
+	box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .14), 0 2px 2px 0 rgba(0, 0, 0, .098), 0 1px 5px 0 rgba(0, 0, 0, .084);
+	border: 0;
+	width: 52.66%;
+	border-radius: 4px;
+	margin-bottom: 2.14%;
+	padding-left: 0%;
+
+}
+
+.thumb96 {
+
+	width: 40%!important;
+	height: 13% !important;
+}
+
+.student_info_admin {
+	position: fixed;
+	width: 32.91%;
+	height: 53.69%;
+	margin-top: 10%;
+	overflow: auto;
+	overflow-x: hidden;
+	/* position:absolute;
+	width: 100%;
+    height: 100%;
+    margin-top: 60%;
+    overflow: auto;
+    overflow-x: hidden; */
+}
+
+.my-custom-scrollbar {
+	position: relative;
+	height: 80%;
+	overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+	display: block;
+}
+
+.table_staff {
+	position: relative;
+	width: 71.09%;
+	height: 53.69%;
+	margin-top: 26.84%;
+	margin-left: 23.04%;
+}
+
+.table_admin,
+.table_staff {
+	position: absolute;
+	width: 69.12%;
+	height: 70%;
+	margin-top: 17%;
+	margin-left: 27.64%;
+}
+
+.otp {
+
+	width: fit-content;
+	height: fit-content;
+	margin-top: 26.84%;
+}
+
+.otp1 {
+	position: absolute;
+	width: fit-content;
+	height: fit-content;
+	left: 70%;
+	margin-top: 40.26%;
+
+
+}
+
+.bt1 {
+	position: absolute;
+	left: 26.33%;
+	top: 26.84%;
+}
+
+.bt2 {
+	position: absolute;
+	top: 20.13%;
+	left: 26.33%;
+}
+
+.bt3 {
+	position: absolute;
+	top: 40.26%;
+	left: 26.33%;
+}
+
+.booking_scroll {
+	position: absolute;
+	width: 40%;
+	height: 70%;
+	margin-left: 59.24%;
+	margin-top: 10%;
+}
+
+.bt4 {
+	position: absolute;
+	top: 53.69%;
+	left: 26.33%;
+}
+
+.bt5 {
+	position: absolute;
+	top: 0px;
+	left: 6.58%;
+	width: 50%;
+	padding: 5px;
+}
+.roomno{
+	margin: .5%;
+}
+.bt6 {
+	position: absolute;
+	top: 13.42%;
+	left: 6.58%;
+}
+
+.bt7 {
+	position: absolute;
+	top: 26.84%;
+	left: 6.58%;
+}
+
+.bt8 {
+	position: absolute;
+	top: 40.26%;
+	left: 6.58%;
+}
+
+.bt9 {
+	position: absolute;
+	top: 53.69%;
+	left: 6.58%;
+}
+
+.book_room {
+	position: absolute;
+	width: 10.53%;
+
+	margin-left: 69.12%;
+	margin-top: 35.53%;
+}
+
+.reserve {
+	position: absolute;
+	width: 10.53%;
+
+	margin-left: 78.99%;
+	margin-top: 35.53%;
+}
+
+.gender {
+	width: 26.33%;
+	margin-left: .65%;
+}
+.loveyou{
+	position: absolute;
+	margin-top:30%;
+	margin-left:30%;
+}

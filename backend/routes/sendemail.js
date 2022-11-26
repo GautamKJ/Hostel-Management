@@ -18,7 +18,7 @@ router.post('/sendmail',fetchuser,(req,res)=>{
         service: 'gmail',
         auth: {
           user: '20ucs072@lnmiit.ac.in',
-          pass: 'gautam@kr'
+          pass: '*********'
         }
     });
  

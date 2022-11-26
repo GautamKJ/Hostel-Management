@@ -99,7 +99,7 @@ router.post('/deletestudent',  fetchuser,async (req,res)=>{
    
     
     console.log(req.body.roll_no,"  ",student);
-    login= await Login.findOneAndDelete(email);
+    login= await Login.findOneAndDelete({email:email});
     res.json("Success : Student has been deleted" );
     }
     catch(errors){
