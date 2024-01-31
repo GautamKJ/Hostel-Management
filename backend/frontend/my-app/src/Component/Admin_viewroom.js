@@ -31,7 +31,7 @@ function Admin_viewroom() {
 
     try {
    
-      const response=await fetch("http://localhost:8081/api/fetchhostelroom",{
+      const response=await fetch("https://hostels-management.onrender.com/api/fetchhostelroom",{
         method:"POST",
         headers:{
           'content-Type':'application/json',

@@ -31,7 +31,7 @@ function Staff_viewstudent() {
  e.preventDefault();
  try {
 
-   const response=await fetch("http://localhost:8081/api/fetchstudentstaff",{
+   const response=await fetch("https://hostels-management.onrender.com/api/fetchstudentstaff",{
      method:"POST",
      headers:{
        'content-Type':'application/json',

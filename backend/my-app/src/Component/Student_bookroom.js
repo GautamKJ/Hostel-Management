@@ -43,7 +43,7 @@ function Student_bookroom() {
 const getStudentdata=async()=>{
   try {
    
-    const response=await fetch("http://localhost:8081/api/fetchstudentroll",{
+    const response=await fetch("https://hostels-management.onrender.com/api/fetchstudentroll",{
       method:"POST",
       headers:{
         'content-Type':'application/json',
@@ -70,7 +70,7 @@ const getStudentdata=async()=>{
     
     try {
    
-      const response=await fetch("http://localhost:8081/api/fetchhostelroom",{
+      const response=await fetch("https://hostels-management.onrender.com/api/fetchhostelroom",{
         method:"POST",
         headers:{
           'content-Type':'application/json',
@@ -95,7 +95,7 @@ const getStudentdata=async()=>{
     console.log("room",room);
     try {
      
-      const response=await fetch("http://localhost:8081/api/bookroom",{
+      const response=await fetch("https://hostels-management.onrender.com/api/bookroom",{
         method:"POST",
         headers:{
           'content-Type':'application/json',
@@ -122,7 +122,7 @@ const getStudentdata=async()=>{
   console.log("room",room);
     try {
      
-      const response=await fetch("http://localhost:8081/api/fetchparticularroom",{
+      const response=await fetch("https://hostels-management.onrender.com/api/fetchparticularroom",{
         method:"POST",
         headers:{
           'content-Type':'application/json',

@@ -30,7 +30,7 @@ function Admin_viewstudent() {
  e.preventDefault();
  try {
 
-   const response=await fetch("http://localhost:8081/api/fetchstudentroll",{
+   const response=await fetch("https://hostels-management.onrender.com/api/fetchstudentroll",{
      method:"POST",
      headers:{
        'content-Type':'application/json',

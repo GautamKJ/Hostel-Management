@@ -25,7 +25,7 @@ function Student_viewcomplain(props) {
   
       try {
      
-        const response=await fetch("http://localhost:8081/api/fetchcomplain",{
+        const response=await fetch("https://hostels-management.onrender.com/api/fetchcomplain",{
           method:"POST",
           headers:{
             'content-Type':'application/json',

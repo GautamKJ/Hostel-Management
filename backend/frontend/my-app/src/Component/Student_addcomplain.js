@@ -29,7 +29,7 @@ function Student_addcomplain() {
         e.preventDefault();
         try {
     
-          const response=await fetch("http://localhost:8081/api/addcomplain",{
+          const response=await fetch("https://hostels-management.onrender.com/api/addcomplain",{
             method:"POST",
             headers:{
               'content-Type':'application/json',

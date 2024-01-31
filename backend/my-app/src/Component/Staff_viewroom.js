@@ -33,7 +33,7 @@ const selectUser= async(id,roll)=>{
   console.log(roll);
   try {
    
-    const response=await fetch("http://localhost:8081/api/fetchroomdetailwithid",{
+    const response=await fetch("https://hostels-management.onrender.com/api/fetchroomdetailwithid",{
       method:"POST",
       headers:{
         'content-Type':'application/json',
@@ -61,7 +61,7 @@ const onsubmit=async(e)=>{
   console.log(comId,rollno,newroll);
   try {
    
-    const response=await fetch("http://localhost:8081/api/updateroom",{
+    const response=await fetch("https://hostels-management.onrender.com/api/updateroom",{
       method:"PUT",
       headers:{
         'content-Type':'application/json',
@@ -90,7 +90,7 @@ const onsubmit=async(e)=>{
 
     try {
    
-      const response=await fetch("http://localhost:8081/api/fetchhostelroom",{
+      const response=await fetch("https://hostels-management.onrender.com/api/fetchhostelroom",{
         method:"POST",
         headers:{
           'content-Type':'application/json',

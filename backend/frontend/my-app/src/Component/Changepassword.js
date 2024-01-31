@@ -12,7 +12,7 @@ function Changepassword() {
         console.log(details.email,details.oldPass,details.newPass);
         try {
        
-          const response=await fetch("http://localhost:8081/api/changePassword",{
+          const response=await fetch("https://hostels-management.onrender.com/api/changePassword",{
             method:"PUT",
             headers:{
               'content-Type':'application/json',
