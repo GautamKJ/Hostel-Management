@@ -28,7 +28,7 @@ function Admin_deletestudent() {
  e.preventDefault();
  try {
 
-   const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/deletestudent",{
+   const response=await fetch("http://localhost:8081/api/deletestudent",{
      method:"POST",
      headers:{
        'content-Type':'application/json',

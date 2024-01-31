@@ -19,7 +19,7 @@ function Student_homepage() {
       navigate('/');
   })
   return (
-    <div>
+    <div className='homepage'>
         <div class="wrapper d-flex">
     <div class="sidebar">
       <small class="text-muted pl-3">Hostel Management </small>

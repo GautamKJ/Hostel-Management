@@ -25,7 +25,7 @@ function Student_viewcomplain(props) {
   
       try {
      
-        const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/fetchcomplain",{
+        const response=await fetch("http://localhost:8081/api/fetchcomplain",{
           method:"POST",
           headers:{
             'content-Type':'application/json',

@@ -25,7 +25,7 @@ function Student_viewprofile() {
      try {
     
         console.log(stdRollno);
-       const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/fetchstudentroll",{
+       const response=await fetch("http://localhost:8081/api/fetchstudentroll",{
          method:"POST",
          headers:{
            'content-Type':'application/json',

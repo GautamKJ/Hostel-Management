@@ -43,7 +43,7 @@ function Student_bookroom() {
 const getStudentdata=async()=>{
   try {
    
-    const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/fetchstudentroll",{
+    const response=await fetch("http://localhost:8081/api/fetchstudentroll",{
       method:"POST",
       headers:{
         'content-Type':'application/json',
@@ -70,7 +70,7 @@ const getStudentdata=async()=>{
     
     try {
    
-      const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/fetchhostelroom",{
+      const response=await fetch("http://localhost:8081/api/fetchhostelroom",{
         method:"POST",
         headers:{
           'content-Type':'application/json',
@@ -95,7 +95,7 @@ const getStudentdata=async()=>{
     console.log("room",room);
     try {
      
-      const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/bookroom",{
+      const response=await fetch("http://localhost:8081/api/bookroom",{
         method:"POST",
         headers:{
           'content-Type':'application/json',
@@ -122,7 +122,7 @@ const getStudentdata=async()=>{
   console.log("room",room);
     try {
      
-      const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/fetchparticularroom",{
+      const response=await fetch("http://localhost:8081/api/fetchparticularroom",{
         method:"POST",
         headers:{
           'content-Type':'application/json',
@@ -178,7 +178,7 @@ const getStudentdata=async()=>{
   </div>
   <div class="back-gr">
 
-    <h1 class="head1">Book Room</h1>
+    <h1 class="head1" >Book Room</h1>
     <h3 class="head3"> Select room details</h3>
 
     <button type="button" class="btn btn-secondary" data-bs-toggle="button" onClick={logout}>Log out</button>

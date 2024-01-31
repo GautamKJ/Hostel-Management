@@ -20,7 +20,7 @@ function Login(props) {
     
     try {
       console.log(credentials.email);
-      const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/login",{
+      const response=await fetch("http://localhost:8081/api/login",{
         method:"POST",
         headers:{
           'content-Type':'application/json',
@@ -37,7 +37,7 @@ function Login(props) {
 
       try {
         
-        const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/loggeduser",{
+        const response=await fetch("http://localhost:8081/api/loggeduser",{
           method:"POST",
           headers:{
             'content-Type':'application/json',
@@ -59,7 +59,7 @@ function Login(props) {
         
           }
           else{
-            const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/fetchstudentroll",{
+            const response=await fetch("http://localhost:8081/api/fetchstudentroll",{
           method:"POST",
           headers:{
             'content-Type':'application/json',

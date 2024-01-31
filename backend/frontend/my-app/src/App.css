@@ -63,7 +63,7 @@ html {
     padding: 0;
     font-family: 'Roboto', sans-serif;
     background: linear-gradient(#141e30, #243b55);
-    background-image: url("../public/images/LoginProper.jpeg");
+    
     background-size: 100% 100%;
    
 }
@@ -172,7 +172,9 @@ html {
 
 	height: 120vh;
 	
-	background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+	/* background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%); */
+		
+	background-color: white;
 }
 
 
@@ -530,3 +532,4 @@ h6 {
 	margin-top:30%;
 	margin-left:30%;
 }
+

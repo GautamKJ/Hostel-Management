@@ -31,7 +31,7 @@ function Staff_viewstudent() {
  e.preventDefault();
  try {
 
-   const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/fetchstudentstaff",{
+   const response=await fetch("http://localhost:8081/api/fetchstudentstaff",{
      method:"POST",
      headers:{
        'content-Type':'application/json',

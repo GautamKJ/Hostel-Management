@@ -34,7 +34,7 @@ function Admin_addStudent() {
     e.preventDefault();
     try {
 
-      const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/addstudent",{
+      const response=await fetch("http://localhost:8081/api/addstudent",{
         method:"POST",
         headers:{
           'content-Type':'application/json',
@@ -45,7 +45,7 @@ function Admin_addStudent() {
       if(response.status==200){
         setLoading(true);
         try{
-          const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/sendmail",{
+          const response=await fetch("http://localhost:8081/api/sendmail",{
             method:"POST",
             headers:{
               'content-Type':'application/json',

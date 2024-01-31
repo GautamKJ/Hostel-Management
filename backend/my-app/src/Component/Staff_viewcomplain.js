@@ -39,7 +39,7 @@ const selectUser= async(id)=>{
   console.log(id);
   try {
    
-    const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/fetchcomplainid",{
+    const response=await fetch("http://localhost:8081/api/fetchcomplainid",{
       method:"POST",
       headers:{
         'content-Type':'application/json',
@@ -67,7 +67,7 @@ const onupdate= async(id)=>{
   console.log("IDDD ",id);
   try {
    
-    const response=await fetch(`https://hostelmanagementlnm.herokuapp.com/api/updatecomplain/${id}`,{
+    const response=await fetch(`http://localhost:8081/api/updatecomplain/${id}`,{
       method:"PUT",
       headers:{
         'content-Type':'application/json',
@@ -93,7 +93,7 @@ const onupdate= async(id)=>{
 
     try {
    
-      const response=await fetch("https://hostelmanagementlnm.herokuapp.com/api/fetchhostelcomplain",{
+      const response=await fetch("http://localhost:8081/api/fetchhostelcomplain",{
         method:"POST",
         headers:{
           'content-Type':'application/json',
