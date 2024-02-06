@@ -19,4 +19,7 @@ Student:
 Username: 20ucs072
 password: 20ucs072
 
+## booking page image
+<img width="949" alt="hostel" src="https://github.com/GautamKJ/Hostel-Management/assets/97722291/4ea8d9db-e6bf-4023-b4b9-70666ec537bb">
+
 
